@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Proposta Comercial · UNAC Digital para Grupo Império</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%232a46c8'/><path d='M28 68 V40 a22 22 0 0 1 44 0 V68' fill='none' stroke='%23fff' stroke-width='9' stroke-linecap='round'/></svg>">
+<style>
+  :root{
+    --bg:#f4f7fc; --surface:#ffffff; --surface-2:#eef2fa;
+    --ink:#132038; --muted:#5c6b86; --border:#e0e7f2;
+    --brand:#2a46c8; --brand-ink:#1d3391; --brand-soft:#e8ecfb;
+    --gold:#9c7a2b; --gold-soft:#f5edd9;
+    --good:#2f8a4e; --strike:#9aa6bb;
+    --shadow:0 1px 2px rgba(20,35,70,.05), 0 18px 40px rgba(20,35,70,.08);
+    --radius:16px;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --bg:#0b1120; --surface:#131b2e; --surface-2:#1a2337;
+      --ink:#e9eef8; --muted:#98a6c2; --border:#27314c;
+      --brand:#6f86ff; --brand-ink:#aab7ff; --brand-soft:#182449;
+      --gold:#d7b25f; --gold-soft:#2a2413;
+      --good:#5cc27f; --strike:#66738c;
+      --shadow:0 1px 2px rgba(0,0,0,.3), 0 20px 50px rgba(0,0,0,.4);
+    }
+  }
+  :root[data-theme="light"]{
+    --bg:#f4f7fc; --surface:#ffffff; --surface-2:#eef2fa; --ink:#132038; --muted:#5c6b86; --border:#e0e7f2;
+    --brand:#2a46c8; --brand-ink:#1d3391; --brand-soft:#e8ecfb; --gold:#9c7a2b; --gold-soft:#f5edd9; --good:#2f8a4e; --strike:#9aa6bb;
+    --shadow:0 1px 2px rgba(20,35,70,.05), 0 18px 40px rgba(20,35,70,.08);
+  }
+  :root[data-theme="dark"]{
+    --bg:#0b1120; --surface:#131b2e; --surface-2:#1a2337; --ink:#e9eef8; --muted:#98a6c2; --border:#27314c;
+    --brand:#6f86ff; --brand-ink:#aab7ff; --brand-soft:#182449; --gold:#d7b25f; --gold-soft:#2a2413; --good:#5cc27f; --strike:#66738c;
+    --shadow:0 1px 2px rgba(0,0,0,.3), 0 20px 50px rgba(0,0,0,.4);
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:"DM Sans",system-ui,sans-serif; line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    display:flex; flex-direction:column; min-height:100vh;
+  }
+  .serif{font-family:"Fraunces",Georgia,serif}
+  .wrap{width:100%; max-width:920px; margin:0 auto; padding:0 clamp(16px,4vw,28px)}
+
+  /* Topbar */
+  .topbar{border-top:4px solid var(--brand); background:var(--surface); border-bottom:1px solid var(--border)}
+  .topbar__inner{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:16px 0}
+  .fromto{font-size:13px; letter-spacing:.02em; color:var(--muted)}
+  .fromto b{color:var(--ink); font-weight:600}
+  .theme-btn{background:transparent; border:1px solid var(--border); color:var(--muted); border-radius:9px; padding:6px 10px; cursor:pointer; font:inherit; font-size:13px}
+  .theme-btn:hover{color:var(--ink); border-color:var(--brand)}
+
+  /* Progress steps */
+  .steps{background:var(--surface); border-bottom:1px solid var(--border); position:sticky; top:0; z-index:5}
+  .steps__list{display:flex; gap:4px; padding:12px 0; list-style:none; margin:0; overflow-x:auto}
+  .step-btn{
+    display:flex; align-items:center; gap:8px; white-space:nowrap;
+    background:transparent; border:none; color:var(--muted); font:inherit; font-size:13.5px; font-weight:500;
+    padding:8px 12px; border-radius:999px; cursor:pointer; transition:background .2s,color .2s;
+  }
+  .step-btn:hover{background:var(--surface-2); color:var(--ink)}
+  .step-btn__n{display:grid; place-items:center; width:22px; height:22px; border-radius:50%; background:var(--surface-2); color:var(--muted); font-size:12px; font-weight:700; flex:none; transition:background .2s,color .2s}
+  .step-btn[aria-current="true"]{color:var(--brand-ink); background:var(--brand-soft)}
+  .step-btn[aria-current="true"] .step-btn__n{background:var(--brand); color:#fff}
+  .step-btn:focus-visible{outline:3px solid var(--brand); outline-offset:2px}
+  .progress-line{height:3px; background:var(--surface-2)}
+  .progress-line__fill{height:100%; background:var(--brand); width:20%; transition:width .4s cubic-bezier(.4,0,.2,1)}
+
+  /* Panels */
+  main{flex:1; padding:clamp(28px,6vw,64px) 0}
+  .panel{display:none; animation:fade .4s ease}
+  .panel.is-active{display:block}
+  @keyframes fade{from{opacity:0; transform:translateY(10px)} to{opacity:1; transform:none}}
+
+  .eyebrow{font-size:12.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--brand); font-weight:700; margin:0 0 14px}
+  h1.title{font-size:clamp(30px,6vw,52px); line-height:1.05; letter-spacing:-.02em; margin:0 0 18px; text-wrap:balance}
+  h2.title{font-size:clamp(25px,4.6vw,40px); line-height:1.1; letter-spacing:-.01em; margin:0 0 20px; text-wrap:balance}
+  .lead{font-size:clamp(16px,2vw,19px); color:var(--muted); max-width:60ch; margin:0 0 24px}
+  .lead b, .lead strong{color:var(--ink); font-weight:600}
+  p{margin:0 0 16px}
+
+  /* Cover (step 1) */
+  .cover{min-height:52vh; display:flex; flex-direction:column; justify-content:center}
+  .cover .fromto-big{font-size:15px; color:var(--muted); margin:0 0 22px; letter-spacing:.01em}
+  .cover .fromto-big b{color:var(--brand-ink)}
+
+  /* Buttons */
+  .btn{display:inline-flex; align-items:center; gap:9px; padding:13px 26px; border-radius:11px; font-weight:600; font-size:16px; cursor:pointer; border:none; text-decoration:none; transition:transform .15s,box-shadow .2s,background .2s}
+  .btn--primary{background:var(--brand); color:#fff; box-shadow:0 6px 18px rgba(42,70,200,.28)}
+  .btn--primary:hover{transform:translateY(-1px)}
+  .btn--ghost{background:transparent; color:var(--brand-ink); border:1.5px solid var(--border)}
+  .btn--ghost:hover{border-color:var(--brand)}
+  .btn:focus-visible{outline:3px solid var(--brand); outline-offset:2px}
+
+  /* Two-col comparison (entregue) */
+  .cols{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:8px 0 4px}
+  .col-card{background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:22px; box-shadow:var(--shadow)}
+  .col-card__head{font-family:"Fraunces",serif; font-size:19px; font-weight:600; color:var(--brand-ink); margin:0 0 14px; padding-bottom:12px; border-bottom:1px solid var(--border)}
+  .feat{list-style:none; margin:0; padding:0}
+  .feat li{position:relative; padding:7px 0 7px 26px; font-size:14.5px; border-top:1px solid var(--border)}
+  .feat li:first-child{border-top:none}
+  .feat li::before{content:""; position:absolute; left:2px; top:14px; width:11px; height:6px; border-left:2px solid var(--good); border-bottom:2px solid var(--good); transform:rotate(-45deg)}
+  @media (max-width:640px){.cols{grid-template-columns:1fr}}
+
+  /* Scorecard (qualidade) */
+  .score{width:100%; border-collapse:collapse; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); margin:8px 0 20px}
+  .score th, .score td{padding:14px 16px; text-align:center; border-top:1px solid var(--border)}
+  .score thead th{background:var(--surface-2); font-family:"Fraunces",serif; font-size:15px; color:var(--brand-ink); border-top:none}
+  .score tbody th{text-align:left; font-weight:500; color:var(--muted); font-size:14.5px}
+  .score .num{font-family:"Fraunces",serif; font-size:24px; font-weight:600; font-variant-numeric:tabular-nums}
+
+  /* Investment */
+  .price-row{display:flex; justify-content:space-between; align-items:baseline; gap:16px; padding:12px 0; border-bottom:1px solid var(--border); font-size:16px}
+  .price-row:last-of-type{border-bottom:none}
+  .price-row .v{font-family:"Fraunces",serif; font-weight:600; font-size:19px; font-variant-numeric:tabular-nums; white-space:nowrap}
+  .combo{display:flex; justify-content:space-between; align-items:baseline; gap:12px; flex-wrap:wrap; background:var(--brand-soft); border:1px solid var(--brand); border-radius:12px; padding:16px 20px; margin:16px 0}
+  .combo__label{font-weight:600}
+  .combo__val{font-family:"Fraunces",serif; font-size:26px; font-weight:700; color:var(--brand-ink); font-variant-numeric:tabular-nums}
+  .combo__old{color:var(--strike); text-decoration:line-through; font-size:17px; margin-right:8px; font-family:"DM Sans",sans-serif; font-weight:400}
+  .save{color:var(--good); font-weight:600; font-size:14px}
+
+  .block{margin:28px 0}
+  .block__h{font-family:"Fraunces",serif; font-size:20px; font-weight:600; margin:0 0 6px}
+  .maint{list-style:none; margin:12px 0 0; padding:0}
+  .maint li{display:flex; justify-content:space-between; gap:12px; padding:9px 0; border-top:1px dashed var(--border); font-size:15px}
+  .maint li:first-child{border-top:none}
+  .maint .v{font-family:"Fraunces",serif; font-weight:600; font-variant-numeric:tabular-nums; white-space:nowrap}
+  .maint .hl{color:var(--brand-ink)}
+
+  .summary{width:100%; border-collapse:collapse; margin:10px 0 6px; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow)}
+  .summary th, .summary td{padding:13px 16px; border-top:1px solid var(--border); font-size:15px}
+  .summary thead th{background:var(--surface-2); font-family:"Fraunces",serif; font-weight:600; color:var(--brand-ink); border-top:none; text-align:right}
+  .summary thead th:first-child{text-align:left}
+  .summary tbody th{text-align:left; font-weight:500; color:var(--muted)}
+  .summary td{text-align:right; font-variant-numeric:tabular-nums; font-family:"Fraunces",serif; font-weight:600}
+  .summary td.old{color:var(--strike); text-decoration:line-through; font-weight:400; font-family:"DM Sans",sans-serif}
+  .summary tr.total th, .summary tr.total td{border-top:2px solid var(--border); font-size:17px; color:var(--ink)}
+  .summary tr.total td.disc{color:var(--brand-ink); font-size:20px}
+  .save-line{text-align:center; color:var(--good); font-weight:600; margin:8px 0 26px}
+
+  .pay{background:var(--surface); border:1px solid var(--border); border-left:4px solid var(--brand); border-radius:12px; padding:18px 22px; margin:20px 0}
+  .pay .pay__h{font-weight:700; color:var(--brand-ink); margin:0 0 4px}
+  .closing{margin:22px 0 4px; font-weight:600; font-size:17px}
+  .validity{font-size:13.5px; color:var(--muted)}
+
+  /* Footer nav */
+  .navbar{background:var(--surface); border-top:1px solid var(--border); position:sticky; bottom:0}
+  .navbar__inner{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:14px 0}
+  .navbar .count{font-size:13px; color:var(--muted); font-variant-numeric:tabular-nums}
+  .nav-btn{display:inline-flex; align-items:center; gap:7px; padding:11px 20px; border-radius:10px; font:inherit; font-weight:600; font-size:15px; cursor:pointer; border:1px solid var(--border); background:var(--surface); color:var(--ink); transition:background .2s,border-color .2s}
+  .nav-btn:hover:not(:disabled){border-color:var(--brand); color:var(--brand-ink)}
+  .nav-btn--next{background:var(--brand); color:#fff; border-color:var(--brand)}
+  .nav-btn--next:hover:not(:disabled){background:var(--brand-ink)}
+  .nav-btn:disabled{opacity:.4; cursor:not-allowed}
+  .nav-btn:focus-visible{outline:3px solid var(--brand); outline-offset:2px}
+
+  .doc-foot{font-size:12px; color:var(--muted); text-align:center; padding:18px 0 10px}
+
+  @media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar__inner">
+    <p class="fromto">de <b>UNAC Digital</b> para <b>Grupo Império</b></p>
+    <button class="theme-btn" type="button" data-theme-toggle aria-label="Alternar tema claro/escuro">Tema</button>
+  </div>
+</header>
+
+<nav class="steps" aria-label="Etapas da proposta">
+  <ul class="steps__list" id="stepsList">
+    <li><button class="step-btn" data-go="0" aria-current="true"><span class="step-btn__n">1</span> Início</button></li>
+    <li><button class="step-btn" data-go="1"><span class="step-btn__n">2</span> O desafio</button></li>
+    <li><button class="step-btn" data-go="2"><span class="step-btn__n">3</span> O que está entregue</button></li>
+    <li><button class="step-btn" data-go="3"><span class="step-btn__n">4</span> Qualidade</button></li>
+    <li><button class="step-btn" data-go="4"><span class="step-btn__n">5</span> Investimento</button></li>
+  </ul>
+  <div class="progress-line"><div class="progress-line__fill" id="progFill"></div></div>
+</nav>
+
+<main>
+  <div class="wrap">
+
+    <!-- STEP 1 -->
+    <section class="panel is-active" id="panel-0" role="tabpanel" aria-label="Início" tabindex="-1">
+      <div class="cover">
+        <h1 class="title serif">Proposta Comercial</h1>
+        <p class="fromto-big">de <b>UNAC Digital</b> para <b>Grupo Império</b></p>
+        <p class="lead">Dois sites institucionais feitos sob medida, construídos para captar leads qualificados e transformar visitantes em clientes reais.</p>
+        <div><button class="btn btn--primary" data-next>Começar <span aria-hidden="true">→</span></button></div>
+      </div>
+    </section>
+
+    <!-- STEP 2 -->
+    <section class="panel" id="panel-1" role="tabpanel" aria-label="O desafio" tabindex="-1">
+      <p class="eyebrow">O desafio</p>
+      <h2 class="title serif">O que vocês construíram merece mais que um slide</h2>
+      <p class="lead">Hoje, demonstrar o que vocês construíram depende de um PPT — enviado, aberto, e desatualizado a cada novo projeto.</p>
+      <p class="lead">O site que criamos juntos troca isso por um link só, sempre no ar: o portfólio da Unique Garden e a vitrine da Império, a qualquer hora, em qualquer tela, indo além de um portfólio, captando contatos e gerando novas oportunidades de negócio.</p>
+    </section>
+
+    <!-- STEP 3 -->
+    <section class="panel" id="panel-2" role="tabpanel" aria-label="O que está entregue" tabindex="-1">
+      <p class="eyebrow">O que está entregue</p>
+      <h2 class="title serif">Dois sites completos, prontos para publicar</h2>
+      <p class="lead">Cada um construído sob medida, com identidade própria:</p>
+      <div class="cols">
+        <div class="col-card">
+          <h3 class="col-card__head">Unique Garden Malls</h3>
+          <ul class="feat">
+            <li>5 páginas (Início, Empreendimentos, Investidores, Proprietários, Contato)</li>
+            <li>Design exclusivo com a fonte da marca</li>
+            <li>Dois temas visuais alternáveis (claro e escuro)</li>
+            <li>Áreas dedicadas a investidor, lojista e proprietário</li>
+            <li>Carrosséis dos empreendimentos e do pipeline até 2028</li>
+            <li>Seção de números com o histórico de 18 anos</li>
+            <li>Perguntas frequentes (FAQ)</li>
+            <li>Formulário integrado ao WhatsApp</li>
+            <li>Responsivo e otimizado para o Google</li>
+          </ul>
+        </div>
+        <div class="col-card">
+          <h3 class="col-card__head">Império Corretora</h3>
+          <ul class="feat">
+            <li>Páginas para empresas, para você e por produto</li>
+            <li>Design exclusivo na identidade da corretora</li>
+            <li>Logo e identidade visual aplicadas em todo o site</li>
+            <li>Páginas dedicadas por produto (planos de saúde, seguros e consórcio)</li>
+            <li>Faixa animada de seguradoras e operadoras de saúde parceiras</li>
+            <li>Seção de resultados e números da corretora</li>
+            <li>Perguntas frequentes (FAQ)</li>
+            <li>Botão de WhatsApp flutuante em todas as páginas</li>
+            <li>Responsivo e otimizado para o Google</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 4 -->
+    <section class="panel" id="panel-3" role="tabpanel" aria-label="Qualidade comprovada" tabindex="-1">
+      <p class="eyebrow">Qualidade comprovada</p>
+      <h2 class="title serif">Aprovados nos testes de qualidade do Google</h2>
+      <p class="lead">Cada site foi medido pelo <b>Google Lighthouse</b>, a ferramenta oficial do Google para avaliar a qualidade técnica de um site. As notas (de 0 a 100):</p>
+      <table class="score">
+        <thead>
+          <tr><th scope="col"></th><th scope="col">Unique Garden Malls</th><th scope="col">Império Corretora</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">SEO</th><td class="num">100</td><td class="num">100</td></tr>
+          <tr><th scope="row">Desempenho</th><td class="num">97</td><td class="num">97</td></tr>
+          <tr><th scope="row">Boas práticas</th><td class="num">100</td><td class="num">100</td></tr>
+          <tr><th scope="row">Acessibilidade</th><td class="num">100</td><td class="num">100</td></tr>
+        </tbody>
+      </table>
+      <p class="lead">Traduzindo: sites rápidos, seguros, prontos para aparecer no Google e acessíveis a qualquer visitante.</p>
+    </section>
+
+    <!-- STEP 5 -->
+    <section class="panel" id="panel-4" role="tabpanel" aria-label="Investimento" tabindex="-1">
+      <p class="eyebrow">Investimento</p>
+      <h2 class="title serif">Dois sites, uma condição especial</h2>
+      <p class="lead">Cada site foi feito sob medida para o seu público, com qualidade aprovada pelo Google e pronto para publicar. Um trabalho à altura do que o Grupo Império representa.</p>
+
+      <div class="block">
+        <div class="price-row"><span>Unique Garden Malls</span><span class="v">R$ 0</span></div>
+        <div class="price-row"><span>Império Corretora</span><span class="v">R$ 0</span></div>
+        <div class="combo">
+          <span class="combo__label">Os dois juntos</span>
+          <span><span class="combo__old">R$ 0</span><span class="combo__val">R$ 0</span></span>
+        </div>
+        <p class="save" style="text-align:right; margin:0">economia de R$ 0</p>
+      </div>
+
+      <div class="block">
+        <p class="block__h">Manutenção mensal</p>
+        <p style="color:var(--muted); margin:0">Um site não vive parado: o Google valoriza páginas atualizadas, e um site abandonado perde posição com o tempo. A manutenção mantém o conteúdo em dia, o site no ar e monitorado.</p>
+        <ul class="maint">
+          <li><span>Por site</span><span class="v">R$ 0/mês</span></li>
+          <li><span class="hl">Contratando os dois</span><span class="v hl">R$ 0/mês cada</span></li>
+          <li><span>Plano anual (2 meses de cortesia)</span><span class="v hl">R$ 0/ano</span></li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <p class="block__h">Resumo do investimento — 1º ano</p>
+        <table class="summary">
+          <thead>
+            <tr><th scope="col"></th><th scope="col">Sem desconto</th><th scope="col">Com desconto</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Os dois sites</th><td>R$ 0</td><td>R$ 0</td></tr>
+            <tr><th scope="row">Manutenção (1º ano)</th><td>R$ 0</td><td>R$ 0</td></tr>
+            <tr class="total"><th scope="row">Total</th><td class="old">R$ 0</td><td class="disc">R$ 0</td></tr>
+          </tbody>
+        </table>
+        <p class="save-line">Você economiza R$ 0 no primeiro ano.</p>
+      </div>
+
+      <div class="pay">
+        <p class="pay__h">Pagamento</p>
+        <p style="margin:0">À vista, na aprovação. Você não paga adiantado por um site que ainda seria feito. Os dois já estão prontos. Assim que aprovar, publicamos no domínio de vocês.</p>
+      </div>
+
+      <p class="closing">Para seguir, basta o aceite desta proposta.</p>
+      <p class="validity">Enviada em 23/07/2026. Válida até 30/07/2026.</p>
+    </section>
+
+  </div>
+</main>
+
+<nav class="navbar" aria-label="Navegação da proposta">
+  <div class="wrap navbar__inner">
+    <button class="nav-btn" data-prev disabled><span aria-hidden="true">←</span> Anterior</button>
+    <span class="count"><b id="curNum">1</b> de 5</span>
+    <button class="nav-btn nav-btn--next" data-next>Próximo <span aria-hidden="true">→</span></button>
+  </div>
+</nav>
+
+<p class="doc-foot">UNAC Digital · Universo da Acessibilidade Digital Ltda · CNPJ 39.707.952/0001-85</p>
+
+<script>
+(function(){
+  var panels = Array.prototype.slice.call(document.querySelectorAll('.panel'));
+  var stepBtns = Array.prototype.slice.call(document.querySelectorAll('.step-btn'));
+  var total = panels.length;
+  var cur = 0;
+  var fill = document.getElementById('progFill');
+  var curNum = document.getElementById('curNum');
+  var prevBtn = document.querySelector('[data-prev]');
+  var nextBtn = document.querySelector('[data-next-nav]') || document.querySelector('.nav-btn--next');
+
+  function show(i, focus){
+    cur = Math.max(0, Math.min(total-1, i));
+    panels.forEach(function(p,idx){ p.classList.toggle('is-active', idx===cur); });
+    stepBtns.forEach(function(b,idx){ b.setAttribute('aria-current', String(idx===cur)); });
+    fill.style.width = ((cur+1)/total*100) + '%';
+    curNum.textContent = cur+1;
+    prevBtn.disabled = cur===0;
+    document.querySelectorAll('.nav-btn--next').forEach(function(b){
+      b.style.visibility = cur===total-1 ? 'hidden' : 'visible';
+    });
+    window.scrollTo({top:0, behavior:'smooth'});
+    if(focus){ panels[cur].focus({preventScroll:true}); }
+  }
+
+  document.querySelectorAll('[data-next]').forEach(function(b){ b.addEventListener('click', function(){ show(cur+1, true); }); });
+  prevBtn.addEventListener('click', function(){ show(cur-1, true); });
+  stepBtns.forEach(function(b){ b.addEventListener('click', function(){ show(parseInt(b.dataset.go,10), true); }); });
+
+  document.addEventListener('keydown', function(e){
+    if(e.target.matches('input,textarea')) return;
+    if(e.key==='ArrowRight'){ show(cur+1, true); }
+    else if(e.key==='ArrowLeft'){ show(cur-1, true); }
+  });
+
+  // tema
+  var root = document.documentElement;
+  document.querySelector('[data-theme-toggle]').addEventListener('click', function(){
+    var isDark = root.getAttribute('data-theme')==='dark' ||
+      (!root.getAttribute('data-theme') && window.matchMedia('(prefers-color-scheme:dark)').matches);
+    root.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  });
+
+  show(0, false);
+})();
+</script>
+</body>
+</html>
