@@ -69,6 +69,7 @@
   /* Progress steps */
   .steps{background:var(--surface); border-bottom:1px solid var(--border); position:sticky; top:0; z-index:5}
   .steps__list{display:flex; gap:4px; padding:12px 0; list-style:none; margin:0; overflow-x:auto}
+  .steps__list::before, .steps__list::after{content:""; margin:auto}
   .step-btn{
     display:flex; align-items:center; gap:8px; white-space:nowrap;
     background:transparent; border:none; color:var(--muted); font:inherit; font-size:13.5px; font-weight:500;
