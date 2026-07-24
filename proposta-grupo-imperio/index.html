@@ -7,15 +7,14 @@
 <title>Proposta Comercial · UNAC Digital para Grupo Império</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%232a46c8'/><path d='M28 68 V40 a22 22 0 0 1 44 0 V68' fill='none' stroke='%23fff' stroke-width='9' stroke-linecap='round'/></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230000C6'/><path d='M28 68 V40 a22 22 0 0 1 44 0 V68' fill='none' stroke='%23fff' stroke-width='9' stroke-linecap='round'/></svg>">
 <style>
   :root{
     --bg:#f4f7fc; --surface:#ffffff; --surface-2:#eef2fa;
     --ink:#132038; --muted:#5c6b86; --border:#e0e7f2;
-    --brand:#2a46c8; --brand-ink:#1d3391; --brand-soft:#e8ecfb;
-    --gold:#9c7a2b; --gold-soft:#f5edd9;
-    --good:#2f8a4e; --strike:#9aa6bb;
+    --brand:#0000C6; --brand-ink:#0000a3; --brand-soft:#e7e7fb;
+    --strike:#9aa6bb;
     --shadow:0 1px 2px rgba(20,35,70,.05), 0 18px 40px rgba(20,35,70,.08);
     --radius:16px;
   }
@@ -24,19 +23,18 @@
       --bg:#0b1120; --surface:#131b2e; --surface-2:#1a2337;
       --ink:#e9eef8; --muted:#98a6c2; --border:#27314c;
       --brand:#6f86ff; --brand-ink:#aab7ff; --brand-soft:#182449;
-      --gold:#d7b25f; --gold-soft:#2a2413;
-      --good:#5cc27f; --strike:#66738c;
+      --strike:#66738c;
       --shadow:0 1px 2px rgba(0,0,0,.3), 0 20px 50px rgba(0,0,0,.4);
     }
   }
   :root[data-theme="light"]{
     --bg:#f4f7fc; --surface:#ffffff; --surface-2:#eef2fa; --ink:#132038; --muted:#5c6b86; --border:#e0e7f2;
-    --brand:#2a46c8; --brand-ink:#1d3391; --brand-soft:#e8ecfb; --gold:#9c7a2b; --gold-soft:#f5edd9; --good:#2f8a4e; --strike:#9aa6bb;
+    --brand:#0000C6; --brand-ink:#0000a3; --brand-soft:#e7e7fb; --strike:#9aa6bb;
     --shadow:0 1px 2px rgba(20,35,70,.05), 0 18px 40px rgba(20,35,70,.08);
   }
   :root[data-theme="dark"]{
     --bg:#0b1120; --surface:#131b2e; --surface-2:#1a2337; --ink:#e9eef8; --muted:#98a6c2; --border:#27314c;
-    --brand:#6f86ff; --brand-ink:#aab7ff; --brand-soft:#182449; --gold:#d7b25f; --gold-soft:#2a2413; --good:#5cc27f; --strike:#66738c;
+    --brand:#6f86ff; --brand-ink:#aab7ff; --brand-soft:#182449; --strike:#66738c;
     --shadow:0 1px 2px rgba(0,0,0,.3), 0 20px 50px rgba(0,0,0,.4);
   }
 
@@ -44,11 +42,11 @@
   html{scroll-behavior:smooth}
   body{
     margin:0; background:var(--bg); color:var(--ink);
-    font-family:"DM Sans",system-ui,sans-serif; line-height:1.6;
+    font-family:"Kanit",system-ui,sans-serif; line-height:1.6;
     -webkit-font-smoothing:antialiased;
     display:flex; flex-direction:column; min-height:100vh;
   }
-  .serif{font-family:"Fraunces",Georgia,serif}
+  .serif{font-family:"Kanit",sans-serif}
   .wrap{width:100%; max-width:920px; margin:0 auto; padding:0 clamp(16px,4vw,28px)}
 
   /* Topbar */
@@ -58,6 +56,15 @@
   .fromto b{color:var(--ink); font-weight:600}
   .theme-btn{background:transparent; border:1px solid var(--border); color:var(--muted); border-radius:9px; padding:6px 10px; cursor:pointer; font:inherit; font-size:13px}
   .theme-btn:hover{color:var(--ink); border-color:var(--brand)}
+  .brand-logo{height:28px; width:auto; display:block}
+  .cover__logo{height:52px; width:auto; align-self:flex-start; margin:0 0 26px}
+  .logo-escuro{display:none}
+  :root[data-theme="dark"] .logo-claro{display:none}
+  :root[data-theme="dark"] .logo-escuro{display:block}
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]) .logo-claro{display:none}
+    :root:not([data-theme="light"]) .logo-escuro{display:block}
+  }
 
   /* Progress steps */
   .steps{background:var(--surface); border-bottom:1px solid var(--border); position:sticky; top:0; z-index:5}
@@ -95,7 +102,7 @@
 
   /* Buttons */
   .btn{display:inline-flex; align-items:center; gap:9px; padding:13px 26px; border-radius:11px; font-weight:600; font-size:16px; cursor:pointer; border:none; text-decoration:none; transition:transform .15s,box-shadow .2s,background .2s}
-  .btn--primary{background:var(--brand); color:#fff; box-shadow:0 6px 18px rgba(42,70,200,.28)}
+  .btn--primary{background:var(--brand); color:#fff; box-shadow:0 6px 18px rgba(0,0,198,.30)}
   .btn--primary:hover{transform:translateY(-1px)}
   .btn--ghost{background:transparent; color:var(--brand-ink); border:1.5px solid var(--border)}
   .btn--ghost:hover{border-color:var(--brand)}
@@ -104,48 +111,48 @@
   /* Two-col comparison (entregue) */
   .cols{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:8px 0 4px}
   .col-card{background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:22px; box-shadow:var(--shadow)}
-  .col-card__head{font-family:"Fraunces",serif; font-size:19px; font-weight:600; color:var(--brand-ink); margin:0 0 14px; padding-bottom:12px; border-bottom:1px solid var(--border)}
+  .col-card__head{font-family:"Kanit",sans-serif; font-size:19px; font-weight:600; color:var(--brand-ink); margin:0 0 14px; padding-bottom:12px; border-bottom:1px solid var(--border)}
   .feat{list-style:none; margin:0; padding:0}
   .feat li{position:relative; padding:7px 0 7px 26px; font-size:14.5px; border-top:1px solid var(--border)}
   .feat li:first-child{border-top:none}
-  .feat li::before{content:""; position:absolute; left:2px; top:14px; width:11px; height:6px; border-left:2px solid var(--good); border-bottom:2px solid var(--good); transform:rotate(-45deg)}
+  .feat li::before{content:""; position:absolute; left:2px; top:14px; width:11px; height:6px; border-left:2px solid var(--brand); border-bottom:2px solid var(--brand); transform:rotate(-45deg)}
   @media (max-width:640px){.cols{grid-template-columns:1fr}}
 
   /* Scorecard (qualidade) */
   .score{width:100%; border-collapse:collapse; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); margin:8px 0 20px}
   .score th, .score td{padding:14px 16px; text-align:center; border-top:1px solid var(--border)}
-  .score thead th{background:var(--surface-2); font-family:"Fraunces",serif; font-size:15px; color:var(--brand-ink); border-top:none}
+  .score thead th{background:var(--surface-2); font-family:"Kanit",sans-serif; font-size:15px; color:var(--brand-ink); border-top:none}
   .score tbody th{text-align:left; font-weight:500; color:var(--muted); font-size:14.5px}
-  .score .num{font-family:"Fraunces",serif; font-size:24px; font-weight:600; font-variant-numeric:tabular-nums}
+  .score .num{font-family:"Kanit",sans-serif; font-size:24px; font-weight:600; font-variant-numeric:tabular-nums}
 
   /* Investment */
   .price-row{display:flex; justify-content:space-between; align-items:baseline; gap:16px; padding:12px 0; border-bottom:1px solid var(--border); font-size:16px}
   .price-row:last-of-type{border-bottom:none}
-  .price-row .v{font-family:"Fraunces",serif; font-weight:600; font-size:19px; font-variant-numeric:tabular-nums; white-space:nowrap}
+  .price-row .v{font-family:"Kanit",sans-serif; font-weight:600; font-size:19px; font-variant-numeric:tabular-nums; white-space:nowrap}
   .combo{display:flex; justify-content:space-between; align-items:baseline; gap:12px; flex-wrap:wrap; background:var(--brand-soft); border:1px solid var(--brand); border-radius:12px; padding:16px 20px; margin:16px 0}
   .combo__label{font-weight:600}
-  .combo__val{font-family:"Fraunces",serif; font-size:26px; font-weight:700; color:var(--brand-ink); font-variant-numeric:tabular-nums}
-  .combo__old{color:var(--strike); text-decoration:line-through; font-size:17px; margin-right:8px; font-family:"DM Sans",sans-serif; font-weight:400}
-  .save{color:var(--good); font-weight:600; font-size:14px}
+  .combo__val{font-family:"Kanit",sans-serif; font-size:26px; font-weight:700; color:var(--brand-ink); font-variant-numeric:tabular-nums}
+  .combo__old{color:var(--strike); text-decoration:line-through; font-size:17px; margin-right:8px; font-family:"Kanit",sans-serif; font-weight:400}
+  .save{color:var(--brand-ink); font-weight:600; font-size:14px}
 
   .block{margin:28px 0}
-  .block__h{font-family:"Fraunces",serif; font-size:20px; font-weight:600; margin:0 0 6px}
+  .block__h{font-family:"Kanit",sans-serif; font-size:20px; font-weight:600; margin:0 0 6px}
   .maint{list-style:none; margin:12px 0 0; padding:0}
   .maint li{display:flex; justify-content:space-between; gap:12px; padding:9px 0; border-top:1px dashed var(--border); font-size:15px}
   .maint li:first-child{border-top:none}
-  .maint .v{font-family:"Fraunces",serif; font-weight:600; font-variant-numeric:tabular-nums; white-space:nowrap}
+  .maint .v{font-family:"Kanit",sans-serif; font-weight:600; font-variant-numeric:tabular-nums; white-space:nowrap}
   .maint .hl{color:var(--brand-ink)}
 
   .summary{width:100%; border-collapse:collapse; margin:10px 0 6px; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow)}
   .summary th, .summary td{padding:13px 16px; border-top:1px solid var(--border); font-size:15px}
-  .summary thead th{background:var(--surface-2); font-family:"Fraunces",serif; font-weight:600; color:var(--brand-ink); border-top:none; text-align:right}
+  .summary thead th{background:var(--surface-2); font-family:"Kanit",sans-serif; font-weight:600; color:var(--brand-ink); border-top:none; text-align:right}
   .summary thead th:first-child{text-align:left}
   .summary tbody th{text-align:left; font-weight:500; color:var(--muted)}
-  .summary td{text-align:right; font-variant-numeric:tabular-nums; font-family:"Fraunces",serif; font-weight:600}
-  .summary td.old{color:var(--strike); text-decoration:line-through; font-weight:400; font-family:"DM Sans",sans-serif}
+  .summary td{text-align:right; font-variant-numeric:tabular-nums; font-family:"Kanit",sans-serif; font-weight:600}
+  .summary td.old{color:var(--strike); text-decoration:line-through; font-weight:400; font-family:"Kanit",sans-serif}
   .summary tr.total th, .summary tr.total td{border-top:2px solid var(--border); font-size:17px; color:var(--ink)}
   .summary tr.total td.disc{color:var(--brand-ink); font-size:20px}
-  .save-line{text-align:center; color:var(--good); font-weight:600; margin:8px 0 26px}
+  .save-line{text-align:center; color:var(--brand-ink); font-weight:600; margin:8px 0 26px}
 
   .pay{background:var(--surface); border:1px solid var(--border); border-left:4px solid var(--brand); border-radius:12px; padding:18px 22px; margin:20px 0}
   .pay .pay__h{font-weight:700; color:var(--brand-ink); margin:0 0 4px}
@@ -172,7 +179,10 @@
 
 <header class="topbar">
   <div class="wrap topbar__inner">
-    <p class="fromto">de <b>UNAC Digital</b> para <b>Grupo Império</b></p>
+    <a href="https://unacdigital.com.br" target="_blank" rel="noopener" aria-label="UNAC Digital">
+      <img class="brand-logo logo-claro" src="unac-logo-claro.png" alt="UNAC Digital">
+      <img class="brand-logo logo-escuro" src="unac-logo-escuro.png" alt="UNAC Digital">
+    </a>
     <button class="theme-btn" type="button" data-theme-toggle aria-label="Alternar tema claro/escuro">Tema</button>
   </div>
 </header>
@@ -194,6 +204,8 @@
     <!-- STEP 1 -->
     <section class="panel is-active" id="panel-0" role="tabpanel" aria-label="Início" tabindex="-1">
       <div class="cover">
+        <img class="cover__logo logo-claro" src="unac-logo-claro.png" alt="UNAC Digital">
+        <img class="cover__logo logo-escuro" src="unac-logo-escuro.png" alt="UNAC Digital">
         <h1 class="title serif">Proposta Comercial</h1>
         <p class="fromto-big">de <b>UNAC Digital</b> para <b>Grupo Império</b></p>
         <p class="lead">Dois sites institucionais feitos sob medida, construídos para captar leads qualificados e transformar visitantes em clientes reais.</p>
